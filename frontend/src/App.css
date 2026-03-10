@@ -1,0 +1,25 @@
+/* src/App.css */
+
+/* 1. 전역 기본 규칙  */
+html, body {
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+/* 2. 최상위 '틀' 레이아웃 */
+#root {
+  height: 100%;
+}
+
+/* App.js의 최상위 div에 적용될 클래스 */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 웹킷 기반 브라우저 스크롤바 숨기기 */
+::-webkit-scrollbar {
+  display: none;
+}

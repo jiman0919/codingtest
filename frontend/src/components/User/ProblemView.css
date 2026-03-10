@@ -1,0 +1,130 @@
+/* src/components/User/ProblemView.css */
+
+.problemview-problem-view-container {
+    padding: 30px;
+    background-color: #fff;
+    height: 100%;
+    overflow-x:hidden;
+}
+.problemview-problem-view-container::-webkit-scrollbar {
+    display: none;
+}
+
+.problemview-problem-nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.problemview-problem-nav-right {
+    display: flex;
+    gap: 8px;
+}
+
+.problemview-back-to-problem-list-button,
+.problemview-nav-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: normal;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.problemview-back-to-problem-list-button:hover,
+.problemview-nav-button:hover {
+    background-color: #5a6268;
+}
+
+/* ▼▼▼ [추가] 이전/다음 버튼에 화살표 아이콘 추가 ▼▼▼ */
+.problemview-prev-button::before {
+    content: '« '; /* 이전 아이콘 */
+    margin-right: 2px;
+}
+
+.problemview-next-button::after {
+    content: ' »'; /* 다음 아이콘 */
+    margin-left: 2px;
+}
+
+.problemview-problem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.problemview-problem-title {
+    margin: 0;
+    font-size: 2.2em;
+    color: #333;
+    word-break: break-all;
+}
+
+.problemview-problem-score {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.problemview-problem-section {
+    margin-bottom: 35px;
+}
+
+.problemview-section-title {
+    font-size: 1.6em;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+    overflow-wrap: break-word;
+}
+
+.problemview-problem-description {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    margin: 8px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.problemview-problem-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+}
+
+.problemview-problem-table .problemview-table-header-cell {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.problemview-problem-table .problemview-table-cell {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.problemview-input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.problemview-single-input {
+    background-color: #e9ecef;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+}

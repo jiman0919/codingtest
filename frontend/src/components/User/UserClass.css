@@ -1,0 +1,168 @@
+/* src/components/User/UserClass.css */
+
+.page-wrapper {
+    padding-top: 70px;
+}
+
+.content-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.userclass-header {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 16px;
+    text-align: center;
+}
+
+.userclass-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+}
+
+.userclass-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.userclass-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.userclass-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.userclass-item-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.userclass-item-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.userclass-item-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    flex-wrap: wrap;
+}
+
+.userclass-item-enrollment,
+.userclass-item-actions {
+    flex-shrink: 0;
+    color: #495057;
+}
+
+.userclass-enroll-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.userclass-enroll-btn:hover:not(:disabled) {
+    background-color: #0069d9;
+}
+
+.userclass-enroll-btn--disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.userclass-no-items,
+.userclass-error-message,
+.userclass-loading-message {
+    padding: 40px;
+    text-align: center;
+    color: #868e96;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    box-sizing: border-box;
+}
+
+.userclass-error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+}
+
+.userclass-error-message p {
+    margin: 0 0 15px 0;
+}
+
+.userclass-error-message button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    background-color: #6c757d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+.userclass-error-message button:hover {
+    background-color: #5a6268;
+}
+
+
+/* ▼▼▼ [수정] 반응형 스타일을 컨테이너와 헤더 부분만 남기고 수정 ▼▼▼ */
+@media (max-width: 768px) {
+    .page-wrapper {
+        padding-top: 60px;
+    }
+    .content-container,
+    .userclass-no-items,
+    .userclass-error-message,
+    .userclass-loading-message {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .userclass-header h2 {
+        font-size: 1.5em;
+    }
+}

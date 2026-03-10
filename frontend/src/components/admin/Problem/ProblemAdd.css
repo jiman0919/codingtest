@@ -1,0 +1,273 @@
+/* src/admin/Problem/ProblemAdd.css */
+
+.problemadd-problem-add-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+.problemadd-problem-add-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 600;
+    overflow-wrap: break-word;
+}
+
+.problemadd-problem-add-form .problemadd-form-group {
+    margin-bottom: 20px;
+}
+
+.problemadd-problem-add-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.problemadd-problem-add-form input[type="text"],
+.problemadd-problem-add-form input[type="number"],
+.problemadd-problem-add-form textarea {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.problemadd-problem-add-form input[type="text"]:focus,
+.problemadd-problem-add-form input[type="number"]:focus,
+.problemadd-problem-add-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.problemadd-problem-add-form textarea {
+    resize:none;
+}
+
+.problemadd-dynamic-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+}
+
+.problemadd-dynamic-section .problemadd-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.problemadd-dynamic-section h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.problemadd-add-button.problemadd-add-test-case-btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.problemadd-add-button.problemadd-add-test-case-btn:hover {
+    background-color: #0056b3;
+}
+
+.problemadd-test-case-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+.problemadd-test-case-table th, .problemadd-test-case-table td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    vertical-align: middle; /* 아이콘과 정렬을 위해 middle로 변경 */
+    text-align: center;
+}
+
+.problemadd-test-case-table th {
+    background-color: #f1f3f5;
+    font-weight: bold;
+    color: #495057;
+}
+
+.problemadd-test-case-table td {
+    background-color: #fff;
+}
+
+.problemadd-test-case-col-index { width: 30px; }
+.problemadd-test-case-col-input { width: 45%; }
+.problemadd-test-case-col-output { width: 40%; }
+.problemadd-test-case-col-action { width: 50px; }
+
+.problemadd-test-case-table textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+    resize: none;
+}
+.problemadd-test-case-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* ? [수정] 입력 필드와 아이콘 버튼을 감싸는 그룹 */
+.problemadd-test-case-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.problemadd-test-case-input-group input[type="text"] {
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* ? [수정] 아이콘 버튼들을 담는 컨테이너 (호버 시 표시) */
+.problemadd-input-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0; /* 평소엔 숨김 */
+    transition: opacity 0.2s ease-in-out;
+}
+.problemadd-test-case-input-group:hover .problemadd-input-actions {
+    opacity: 1; /* 마우스 올리면 표시 */
+}
+
+/* ? [추가] 아이콘 버튼 공통 스타일 */
+.problemadd-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    background-color: #f1f3f5;
+}
+.problemadd-icon-btn:hover {
+    transform: scale(1.1);
+}
+.problemadd-icon-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: #868e96;
+}
+.problemadd-icon-btn.remove:hover {
+    background-color: #fa5252;
+}
+.problemadd-icon-btn.remove:hover svg {
+    stroke: #fff;
+}
+.problemadd-icon-btn.add:hover {
+    background-color: #228be6;
+}
+.problemadd-icon-btn.add:hover svg {
+    stroke: #fff;
+}
+
+
+.problemadd-no-items-message {
+    text-align: center;
+    padding: 20px;
+    color: #868e96;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.problemadd-error-message {
+    padding: 15px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.problemadd-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.problemadd-form-buttons button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.problemadd-submit-button {
+    background-color: #28a745;
+    color: white;
+}
+.problemadd-submit-button:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+.problemadd-cancel-button {
+    background-color: #6c757d;
+    color: white;
+}
+.problemadd-cancel-button:hover:not(:disabled) {
+    background-color: #5a6268;
+}
+
+.problemadd-remove-test-case-button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1em;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    background-color: #dc3545;
+}
+.problemadd-remove-test-case-button:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+.problemadd-problem-add-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

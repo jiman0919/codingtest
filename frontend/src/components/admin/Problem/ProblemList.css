@@ -1,0 +1,210 @@
+/* src/admin/ProblemList/ProblemList.css */
+
+.problemlist-problem-wrapper {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.problemlist-problem-header {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; 
+}
+
+.problemlist-problem-header h2 {
+    font-size: 26px;
+    color: #333;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.problemlist-header-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.problemlist-back-to-classes-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+.problemlist-back-to-classes-button:hover {
+    background-color: #5a6268;
+}
+
+.problemlist-add-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+.problemlist-add-btn:hover {
+    background-color: #218838;
+}
+.problemlist-add-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.problemlist-problem-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.problemlist-problem-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.problemlist-problem-item:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.problemlist-problem-item-info {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    padding-right: 15px;
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+}
+.problemlist-problem-item-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #444;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.problemlist-problem-item-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.problemlist-edit-btn,
+.problemlist-delete-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: white;
+    white-space: nowrap;
+}
+.problemlist-edit-btn {
+    background-color: #007bff;
+}
+.problemlist-edit-btn:hover {
+    background-color: #0056b3;
+}
+.problemlist-delete-btn {
+    background-color: #dc3545;
+}
+.problemlist-delete-btn:hover {
+    background-color: #c82333;
+}
+
+.problemlist-no-problems-message,
+.problemlist-loading-message,
+.problemlist-error-message {
+    text-align: center;
+    padding: 30px;
+    font-size: 1.1em;
+    color: #666;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.problemlist-error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.problemlist-error-message button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 15px;
+}
+.problemlist-error-message button:hover {
+    background-color: #5a6268;
+}
+
+
+/* ======================================================= */
+/* [반응형 수정] 화면 너비가 768px 이하일 때 적용될 스타일 */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .problemlist-problem-wrapper {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .problemlist-problem-header {
+        flex-direction: column;
+        align-items: center;
+        position: static;
+        gap: 15px;
+    }
+
+    .problemlist-problem-header h2 {
+        position: static;
+        transform: none;
+        font-size: 1.5em;
+    }
+    
+    .problemlist-header-actions {
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 0;
+    }
+    
+    /* [수정] 목록 아이템 세로 정렬 규칙 삭제 */
+}

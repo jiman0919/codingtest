@@ -1,0 +1,308 @@
+/* src/admin/Problem/ProblemEdit.css */
+
+.problemedit-problem-add-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.problemedit-problem-add-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+.problemedit-problem-add-form .problemedit-form-group {
+    margin-bottom: 20px;
+}
+
+.problemedit-problem-add-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.problemedit-problem-add-form input[type="text"],
+.problemedit-problem-add-form input[type="number"],
+.problemedit-problem-add-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.problemedit-problem-add-form textarea {
+    resize: vertical; /* [수정] 세로 크기 조절만 가능하도록 변경 */
+}
+
+.problemedit-dynamic-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+}
+
+.problemedit-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.problemedit-section-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.problemedit-add-test-case-btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.problemedit-test-case-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+.problemedit-test-case-table th, .problemedit-test-case-table td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.problemedit-test-case-table th {
+    background-color: #f1f3f5;
+}
+
+.problemedit-test-case-table td {
+    background-color: #fff;
+}
+
+.problemedit-test-case-col-index { width: 8%; }
+.problemedit-test-case-col-input { width: 42%; }
+.problemedit-test-case-col-output { width: 35%; }
+.problemedit-test-case-col-action { width: 15%; }
+
+.problemedit-test-case-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.problemedit-test-case-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.problemedit-test-case-input-group input[type="text"]{
+    flex-grow: 1;
+}
+
+.problemedit-input-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+.problemedit-test-case-input-group:hover .problemedit-input-actions {
+    opacity: 1;
+}
+
+.problemedit-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #f1f3f5;
+    flex-shrink: 0; /* [추가] */
+}
+.problemedit-icon-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: #868e96;
+}
+.problemedit-icon-btn.remove:hover { background-color: #fa5252; }
+.problemedit-icon-btn.remove:hover svg { stroke: #fff; }
+.problemedit-icon-btn.add:hover { background-color: #228be6; }
+.problemedit-icon-btn.add:hover svg { stroke: #fff; }
+
+.problemedit-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.problemedit-form-buttons button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.problemedit-submit-button {
+    background-color: #28a745;
+    color: white;
+}
+.problemedit-submit-button:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+.problemedit-cancel-button {
+    background-color: #6c757d;
+    color: white;
+}
+.problemedit-cancel-button:hover:not(:disabled) {
+    background-color: #5a6268;
+}
+
+.problemedit-remove-test-case-button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1em;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    background-color: #dc3545;
+}
+.problemedit-remove-test-case-button:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+.problemedit-editor-wrapper {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-top: 5px;
+    overflow: hidden;
+}
+.problemedit-editor-wrapper:focus-within {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.problemedit-problem-add-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ======================================================= */
+/* [반응형 수정] 화면 너비가 768px 이하일 때 적용될 스타일 */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .problemedit-problem-add-container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .problemedit-problem-add-container h2 {
+        font-size: 1.8em;
+    }
+
+    .problemedit-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .problemedit-section-header h3 {
+        font-size: 1.3em;
+    }
+
+    .problemedit-test-case-table {
+        border: none;
+    }
+    
+    .problemedit-test-case-table thead {
+        display: none;
+    }
+
+    .problemedit-test-case-table tr {
+        display: block;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+    
+    .problemedit-test-case-table td {
+        display: flex; /* [수정] Flexbox로 변경하여 정렬 개선 */
+        justify-content: space-between; /* 레이블과 값을 양 끝으로 */
+        align-items: center;
+        text-align: right;
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 10px 5px;
+        width: 100% !important; /* [추가] 고정 너비 무시 */
+    }
+
+    .problemedit-test-case-table tr td:last-child {
+        border-bottom: none;
+    }
+
+    .problemedit-test-case-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-align: left;
+        margin-right: 10px;
+    }
+    
+    /* 입력/출력 필드가 여러 줄을 차지하도록 조정 */
+    .problemedit-test-case-col-input, 
+    .problemedit-test-case-col-output {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .problemedit-test-case-col-input::before,
+    .problemedit-test-case-col-output::before {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .problemedit-test-case-input-container,
+    .problemedit-test-case-col-output textarea {
+        width: 100%;
+    }
+
+    .problemedit-form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .problemedit-form-buttons button {
+        width: 100%;
+    }
+}

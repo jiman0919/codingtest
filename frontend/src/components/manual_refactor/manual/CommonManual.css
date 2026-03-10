@@ -1,0 +1,181 @@
+/* =========================
+   각 섹션(박스)
+   ========================= */
+.manual-section{
+  background-color: #ffffff;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease-in-out;
+  scroll-margin-top: 80px; /* 헤더에 가리지 않게 */
+  position: relative;      /* 테두리 링 기준 */
+}.manual-section::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  outline: 1px solid rgba(0,0,0,.08); /* 얇은 윤곽 링 */
+  pointer-events: none;
+}.manual-section:hover{ box-shadow: 0 4px 12px rgba(0,0,0,0.1); }.manual-section h2{ margin-top: 0; }.manual-section img{
+  width: 100%; max-width: 500px; margin-top: 16px;
+  border: 1px solid #ddd; border-radius: 6px;
+}
+/* =========================
+   두 칼럼 레이아웃
+   ========================= */
+.manual-two-col{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 16px;
+  align-items: start;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}.manual-figure, .manual-steps{ padding: 8px 0; }
+/* =========================
+   좌측 이미지 컨테이너
+   ========================= */
+.manual-figure{
+  position: relative;
+  display: flex; justify-content: center; align-items: flex-start;
+  padding: 0 20px 10px;
+  margin-top: 14px;
+}.manual-figure img{
+  width: 98%; max-width: 620px; height: auto;
+  display: block;
+  margin-top: 0 !important;
+}/* 특정 영역 강조 박스(선택{
+  position: absolute;
+  border: 3px solid #e53935; border-radius: 4px;
+  pointer-events: none;
+}/* 이미지와 동일 크기 래퍼 */
+.img-box{ position: relative; width: 98%; max-width: 620px; }/* 이미지는 크기만 결정(장식은 래퍼 처리) */
+.img-box > img{ display:block; width:100%; height:auto; border:none; }/* 테두리/그림자(좌표 영향 X) */
+.img-box::after{
+  content:""; position:absolute; inset:0; border-radius:6px;
+  box-shadow: 0 10px 18px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.10);
+  outline:1px solid rgba(0,0,0,.18);
+  pointer-events:none; z-index:0;
+}
+/* =========================
+   SVG 오버레이 (로그인/회원가입에서 사용)
+   ========================= */
+.svg-overlay{
+  position: absolute;
+  /* 이미지 보더 두께만큼 안쪽에서 시작하도록 4방향 inset을 변수로 */
+  top:    var(--img-border-top,    0);
+  right:  var(--img-border-right,  0);
+  bottom: var(--img-border-bottom, 0);
+  left:   var(--img-border-left,   0);
+  pointer-events: none;  /* 클릭 방해 X */
+  z-index: 2;            /* .img-box::after(0)보다 위 */
+}.svg-marker circle{
+  fill:#e53935;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.25));
+}.svg-marker text{
+  fill:#fff;
+  font: 700 12px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+/* =========================
+   우측 설명 칼럼
+   ========================= */
+.manual-steps{ padding-right:0; max-width:none; }
+.manual-steps h2{ margin:0 0 8px; font-size:1.5rem; }
+.manual-steps p{ margin:6px 0 10px; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
+.manual-steps ul{
+ margin:0;
+ padding:0; 
+ list-style:none; 
+}
+.manual-step{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin-bottom:6px;
+  line-height:1.45; 
+}
+.manual-step span:last-child{ 
+  word-break:keep-all; 
+  overflow-wrap:break-word; 
+  hyphens:none; 
+}
+.manual-step .num{
+  display:inline-flex; 
+  align-items:center; 
+  justify-content:center;
+  min-width:22px; height:22px; 
+  border-radius:50%;
+  background:#e53935; 
+  color:#fff; 
+  font-weight:700; 
+  font-size:13px; 
+  line-height:1; 
+  padding:2px; 
+  margin-top:1px;
+}
+/* 강조 */
+.manual-note{ display:block; color:#d32f2f; font-size:.85rem; line-height:1.35; margin-top:2px; font-weight:600; }
+.manual-note::before{ content:"※"; font-weight:700; }
+.manual-steps
+.manual-note::after{ content:" \203B"; font-weight:700; }/* 번호 배지 폭/간격을 변수화해서 어디서든 재사용 */
+.manual-steps{
+  --badge-size: 22px; /* .manual-step .num의 min-width와 동일 */
+  --badge-gap: 8px;   /* .manual-step의 gap과 동일 */
+}/* 주의문구를 "문장 시작선"에 자동 정렬 */
+.manual-note.note-align{
+  display: block;
+  margin-left: calc(var(--badge-size) + var(--badge-gap));
+  }
+/* EX 줄: flex 한 줄 더 내려서 들여쓰기 정렬 + 2pt 작게 + 연한색 */
+.manual-steps .manual-step .ex-note{
+  flex-basis: 100%;  /* 형제 span 다음 줄로 강제 개행 */
+  margin-left: calc(var(--badge-size,22px) + var(--badge-gap,8px)); /* 번호 배지만큼 들여쓰기 */
+  font-size: calc(1em - 2pt);
+  color: #666;
+  line-height: 1.4;
+}/* 줄바꿈 정책 */
+
+/* === 관리자 매뉴얼(교수 매뉴얼 규칙을 스코프만 변경) === */
+
+/* [B] 본문 레이아웃 & 이미지 카드 */
+.admin-manual .manual-section { scroll-margin-top:80px; }
+
+.admin-manual .manual-two-col{
+  display:flex; align-items:flex-start; gap:24px;
+  max-width:1100px; margin:0 auto 24px auto;
+  transform:translateX(clamp(0px, -35px + (100vw - 1280px) * 0.05, -35px));
+}
+
+.admin-manual .manual-figure{ flex:0 0 var(--fig-basis,60%); min-width:0; }
+.admin-manual .manual-figure img{ max-width:100%; height:auto; display:block; margin:0 auto; border-radius:8px; }
+.admin-manual .manual-figure.stack-vert{ display:flex; flex-direction:column; gap:12px; }
+
+.admin-manual .manual-steps,
+.admin-manual .manual-text{ flex:1 1 0; min-width:0; }
+
+/* 이미지 카드 */
+.admin-manual .img-box{
+  position:relative; width:100%; border-radius:12px; overflow:hidden;
+  background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.06); border:2px solid rgba(0,0,0,.15);
+}
+.admin-manual .img-border-strong{ border-width:3px; }
+.admin-manual .img-border-xstrong{ border-width:4px; }
+
+.admin-manual .img-box>img,
+.admin-manual .img-box>.svg-overlay{ display:block; width:100%; height:auto; object-fit:cover; pointer-events:none; }
+
+/* 공용 manual.css의 하단 padding 영향 상쇄(하단 뜸 제거) */
+.admin-manual .manual-figure{ padding:0 !important; }
+.admin-manual .manual-section:last-of-type{ margin-bottom:0; }
+.manual-main .admin-manual{ margin-bottom:-2rem; } /* .manual-main{padding:2rem} 보정 */
+
+
+
+.manual-steps, .manual-steps li, .manual-steps span{ white-space:normal; word-break:normal; max-width:none; }.nowrap{ white-space:nowrap; }/* 모바일 */
+
+@media (max-width:768px){
+  .manual-two-col{ grid-template-columns:1fr; }.manual-figure img{ max-width:100%; }}

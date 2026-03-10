@@ -1,0 +1,187 @@
+/* src/components/User/UserProblem.css */
+
+.userproblem-page-wrapper {
+    padding-top: 70px;
+}
+
+.userproblem-user-problem {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.userproblem-user-problem__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 16px;
+    position: relative;
+}
+
+.userproblem-user-problem__header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.userproblem-user-problem__back-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    background-color: #6c757d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.userproblem-user-problem__back-btn:hover {
+    background-color: #5a6268;
+}
+
+.userproblem-user-problem__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.userproblem-user-problem__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.userproblem-user-problem__item:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    background-color: #f0f0f0;
+}
+
+.userproblem-user-problem__item-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.userproblem-user-problem__item-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #343a40;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* [수정] 배점과 제출 상태를 묶는 actions 컨테이너 */
+.userproblem-user-problem__item-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.userproblem-user-problem__item-score {
+    color: #495057;
+    font-weight: 500;
+}
+
+/* ▼▼▼ [추가] 제출 상태 스타일 ▼▼▼ */
+.userproblem-item-status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    min-width: 70px;
+    text-align: center;
+}
+.userproblem-item-status.status--submitted {
+    background-color: #d4edda;
+    color: #28a745;
+}
+.userproblem-item-status.status--not-submitted {
+    background-color: #e2e3e5;
+    color: #6c757d;
+}
+/* ▲▲▲ [추가] 여기까지 ▲▲▲ */
+
+
+.userproblem-user-problem__no-items,
+.userproblem-user-problem__error-container,
+.userproblem-loading-message {
+    padding: 40px;
+    text-align: center;
+    color: #868e96;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.userproblem-user-problem__error-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    color: #dc3545;
+    background-color: #f8d7da;
+}
+
+.userproblem-user-problem__error-container button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    background-color: #6c757d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+.userproblem-user-problem__error-container button:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+    .userproblem-page-wrapper {
+        padding-top: 60px;
+    }
+
+    .userproblem-user-problem {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .userproblem-user-problem__header {
+        flex-direction: column-reverse;
+        gap: 15px;
+        position: static;
+    }
+
+    .userproblem-user-problem__header h2 {
+        position: static;
+        transform: none;
+        font-size: 1.5em;
+    }
+}

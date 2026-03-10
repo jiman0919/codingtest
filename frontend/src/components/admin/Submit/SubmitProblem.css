@@ -1,0 +1,197 @@
+/* src/admin/Submit/SubmitProblem.css */
+
+.submitproblem-problem-wrapper {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+/* ▼▼▼ [수정] 헤더 스타일을 '제목 중앙, 버튼 오른쪽'으로 변경 ▼▼▼ */
+.submitproblem-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+    position: relative; /* 제목 중앙 정렬을 위한 기준점 */
+}
+
+.submitproblem-detail-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 2em;
+    font-weight: 700;
+    /* 제목을 헤더의 정중앙에 위치시키기 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.submitproblem-header-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    /* 버튼 그룹이 오른쪽에 위치하도록 margin-left: auto 추가 */
+    margin-left: auto;
+}
+/* ▲▲▲ [수정] 여기까지 ▲▲▲ */
+
+
+.submitproblem-back-button,
+.submitproblem-export-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+.submitproblem-export-button {
+    background-color: #28a745;
+}
+
+
+.submitproblem-back-button:hover {
+    background-color: #5a6268;
+}
+.submitproblem-export-button:hover {
+    background-color: #218838;
+}
+
+.submitproblem-problem-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.submitproblem-problem-item {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.submitproblem-problem-item:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submitproblem-problem-item-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.submitproblem-problem-item-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.submitproblem-problem-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; 
+    justify-content: flex-end;
+}
+
+.submitproblem-problem-score,
+.submitproblem-submission-time {
+    font-size: 1em;
+    color: #666;
+}
+
+.submitproblem-submission-time {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.submitproblem-problem-status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    min-width: 70px;
+    text-align: center;
+}
+
+.submitproblem-status-정답 {
+    background-color: #d4edda;
+    color: #28a745;
+}
+
+.submitproblem-status-오답 {
+    background-color: #f8d7da;
+    color: #dc3545;
+}
+
+.submitproblem-status-미제출 {
+    background-color: #e2e3e5;
+    color: #6c757d;
+}
+
+.submitproblem-no-problems-message,
+.submitproblem-loading-message,
+.submitproblem-error-message {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #555;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.submitproblem-error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+
+@media (max-width: 768px) {
+    .submitproblem-problem-wrapper {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .submitproblem-detail-header {
+        flex-direction: column;
+        align-items: center;
+        position: static; /* position 해제 */
+    }
+    
+    .submitproblem-detail-header h2 {
+        position: static; /* position 해제 */
+        transform: none; /* transform 해제 */
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    
+    .submitproblem-header-actions {
+        width: 100%;
+        justify-content: space-between; /* 작은 화면에서는 양 끝으로 */
+        margin-left: 0;
+    }
+}

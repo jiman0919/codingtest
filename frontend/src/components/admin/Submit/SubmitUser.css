@@ -1,0 +1,158 @@
+/* src/admin/SubmitUser.css */
+
+.submituser-submission-wrapper {
+    padding: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.submituser-submission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.submituser-submission-header h2 {
+    font-size: 26px;
+    color: #333;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.submituser-header-buttons {
+    position: absolute;
+    right: 0;
+}
+
+.submituser-export-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+.submituser-export-button:hover {
+    background-color: #218838;
+}
+
+.submituser-submission-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.submituser-submission-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.submituser-submission-item:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.submituser-user-info {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    min-width: 0;
+}
+
+.submituser-user-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: #444;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.submituser-user-score {
+    font-size: 15px;
+    color: #666;
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+.submituser-submission-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.submituser-loading-message,
+.submituser-error-message,
+.submituser-no-submissions-message {
+    text-align: center;
+    padding: 30px;
+    font-size: 1.1em;
+    color: #666;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.submituser-error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 20px;
+}
+
+.submituser-back-to-classes-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 15px;
+}
+.submituser-back-to-classes-button:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+    .submituser-submission-wrapper {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .submituser-submission-header {
+        flex-direction: column;
+        gap: 15px;
+        position: static;
+    }
+
+    .submituser-header-buttons {
+        position: static;
+    }
+}

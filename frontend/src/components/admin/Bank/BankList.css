@@ -1,0 +1,258 @@
+/* src/admin/Bank/BankList.css */
+
+.banklist-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    box-sizing: border-box;
+
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.banklist-header {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; 
+}
+
+.banklist-header h2 {
+    font-size: 26px;
+    color: #333;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.banklist-header-controls {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.banklist-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.banklist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px 20px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer; 
+}
+.banklist-item:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.banklist-info {
+    flex-grow: 1;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+}
+
+.banklist-title-link {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.banklist-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.banklist-meta span {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.banklist-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    justify-content: flex-end;
+}
+
+.banklist-actions button {
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: white;
+    white-space: nowrap;
+}
+
+.banklist-actions .banklist-delete-btn {
+    background-color: #dc3545;
+}
+.banklist-actions .banklist-delete-btn:hover {
+    background-color: #c82333;
+}
+
+.banklist-loading-message,
+.banklist-error-message,
+.banklist-no-data-message {
+    text-align: center;
+    padding: 30px;
+    font-size: 1.1em;
+    color: #666;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.banklist-error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 20px;
+}
+
+.banklist-accordion {
+    position: relative;
+    width: 120px;
+    font-family: inherit;
+    margin: 0;
+}
+
+.banklist-accordion-header {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.banklist-accordion-header:hover {
+    border-color: #999;
+}
+
+.banklist-accordion-arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.banklist-accordion-arrow.open {
+    transform: rotate(180deg);
+}
+
+.banklist-accordion-panel {
+    background-color: white;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-radius: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.banklist-accordion-panel.open {
+    max-height: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #ccc;
+}
+
+.banklist-accordion-panel button {
+    display: block;
+    width: 100%;
+    padding: 12px 18px;
+    text-align: left;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.banklist-accordion-panel button:last-child {
+    border-bottom: none;
+}
+
+.banklist-accordion-panel button:hover {
+    background-color: #f0f0f0;
+}
+
+
+@media (max-width: 768px) {
+    .banklist-container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .banklist-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        position: static;
+    }
+
+    .banklist-header h2 {
+        position: static;
+        transform: none;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    
+    .banklist-header-controls {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    /* ▼▼▼ [수정] 모바일에서 목록 아이템을 세로로 쌓는 규칙을 삭제했습니다. ▼▼▼ */
+    /*
+    .banklist-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .banklist-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    */
+}

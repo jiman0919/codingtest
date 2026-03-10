@@ -1,0 +1,44 @@
+/* src/admin/AdminLayout.css */
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.adminlayout-admin-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.adminlayout-admin-container {
+    display: flex;
+    flex: 1;
+    padding-top: 60px; /* 헤더 높이만큼 패딩 */
+    min-height: calc(100vh - 60px);
+    align-items: stretch;
+}
+
+.adminlayout-admin-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background-color: #343a40;
+    color: white;
+    overflow-y: hidden;
+}
+
+.adminlayout-admin-content {
+    flex-grow: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    overflow-x: hidden;
+}

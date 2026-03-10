@@ -1,0 +1,538 @@
+/* AUTO-GENERATED: compatibility layer (do not edit by hand) */
+/* ================================
+   StudentManual 전용 스코프
+   ================================ */
+.u-student-manual {}
+.u-student-manual .u-section { scroll-margin-top: 80px; }
+
+/* ================================
+   좌/우 2열 레이아웃
+   - 왼쪽 칼럼 폭: --fig-basis (기본 66%)
+   ================================ */
+.u-student-manual .u-two-col {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+ /* 섹션/컴포넌트에서 style={{ "--fig-basis":"40%" }} 로 개별 조정 가능 (기본 60%) */
+.u-student-manual .u-figure {
+  max-width: 900px;
+}
+
+.u-student-manual .u-steps,
+.u-student-manual .u-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 내부(img+SVG)를 확대/이동 */
+/* 컨테이너: 비율과 그림자만 담당 */
+.u-student-manual .img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ar, 804 / 461);  /* 원본 비율 강제 유지 */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06); /* 기존 그림자 */
+  border: 2px solid rgba(0,0,0,0.15); /* ★ 진한 테두리 추가 */
+}
+
+/* 이미지와 SVG 모두 적용 */
+.u-student-manual .img-box > img,
+.u-student-manual .img-box > .svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: var(--img-fit, contain); /* 비율 유지 + 잘림 방지 */
+  transform:
+    translate(var(--img-x, 0), var(--img-y, 0))
+    scale(var(--img-scale, 1));
+  transform-origin: var(--img-origin, 50% 50%);
+  pointer-events: none;
+}
+
+/* 그림자 제거 */
+.u-student-manual .img-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  outline: 0;              /* 또는 제거 */
+  box-shadow: none;        /* 그림자 없음: 부모가 담당 */
+  pointer-events: none;
+}
+
+/* ================================
+   이동 변수(단일 세트) — 누적 가능
+   ================================ */
+/* 섹션 전체(이미지+텍스트) 이동 */
+.u-student-manual .u-two-col {
+  transform: translate(var(--sec-x, -50px), var(--sec-y, 0));
+  will-change: transform;
+}
+
+/* 이미지 칼럼이 좁아질 수 있게: shrink 허용 */
+.u-student-manual .u-figure {
+  /* 기존: flex: 0 0 var(--fig-basis, 60%); */
+  flex: 1 1 var(--fig-basis, 60%);
+}
+
+/* 카드(테두리 포함) */
+.u-student-manual .u-figure .img-box {
+  transform: translate(var(--box-x, 0), var(--box-y, 0));
+}
+
+/* 이미지 내용(IMG+SVG) 미세 이동 */
+.u-student-manual .img-box > img,
+.u-student-manual .img-box > .svg-overlay {
+  transform: translate(var(--img-x, 0), var(--img-y, 0));
+  transform-origin: center;
+}
+
+/* 오른쪽 텍스트 칼럼만 */
+.u-student-manual .u-steps {
+  transform: translate(var(--text-x, 0), var(--text-y, 0));
+}
+
+/* ========== 수강신청 1번 항목 줄바꿈 고정 해법 ========== */
+/* li 자체를 2열 Grid로: [번호열][본문열] */
+.u-student-manual .u-steps li.u-step {
+  display: grid !important;
+  grid-template-columns: var(--badge-size) 1fr; /* 번호폭 + 본문 */
+  column-gap: var(--badge-gap);
+  row-gap: 6px;
+  align-items: start;
+  break-inside: avoid;                 /* 멀티컬럼로 쪼개지지 않게 */
+  -webkit-column-break-inside: avoid;  /* 크롬/사파리 */
+  page-break-inside: avoid;
+}
+
+/* 번호 배지: 1열에서 문장 2줄을 통째로 커버 */
+.u-student-manual .u-steps li.u-step > .num {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin-right: 0 !important;  /* 기존 margin-right 무효화 */
+  justify-self: center;
+}
+
+/* 첫 문장: 2열 1행(번호 옆) */
+.u-student-manual .u-steps li.u-step > span:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+  display: block !important;   /* 줄바꿈 기준을 블록으로 */
+  margin: 0 !important;
+  white-space: normal !important;
+}
+
+/* 두 번째 문장: 2열 2행(같은 들여쓰기) */
+.u-student-manual .u-steps li.u-step > span:nth-of-type(3) {
+  grid-column: 2;
+  grid-row: 2;
+  display: block !important;
+  margin: 0 !important;
+  white-space: normal !important;
+}
+
+/* ================================
+   SVG/배지 색상 (빨강)
+   ================================ */
+.u-student-manual .svg-marker circle { fill:#e53935; opacity:.95; }
+.u-student-manual .svg-marker text {
+  fill:#fff; font-size:10px; font-weight:700;
+  text-anchor:middle; dominant-baseline:middle;
+}
+
+.u-student-manual .u-step .num {
+  --badge-size: 24px; --badge-gap: 8px;
+  display:inline-flex; align-items:center; justify-content:center;
+  width:var(--badge-size); height:var(--badge-size);
+  border-radius:9999px; background:#e53935; color:#fff; font-weight:700;
+  margin-right:var(--badge-gap);
+}
+
+.u-student-manual .u-note.note-align {
+  --badge-size: 24px; --badge-gap: 8px;
+  display:block; margin-left: calc(var(--badge-size) + var(--badge-gap));
+  color:#e53935;
+}
+
+.u-student-manual .u-steps { flex: 0 0 40%; }
+.u-student-manual .u-steps { flex: 1 1 40%; }
+
+.u-student-manual .u-section { --sec-x: 0 !important; }
+.u-student-manual .u-figure { --fig-x: 0 !important; }
+.u-student-manual .u-figure .img-box { --box-x: 0 !important; }
+.u-student-manual .u-figure { margin: 0 auto; }
+
+/* ---------------------------------------------------------
+   [A] 사이드바 토글 (ManualLayout의 .u-sidebar-menu 기준)
+   --------------------------------------------------------- */
+.u-sidebar-menu a[href^="/professor_manual/course-"],
+.u-sidebar-menu a[href^="/professor_manual/problem-"],
+.u-sidebar-menu a[href^="/professor_manual/user-"],
+.u-sidebar-menu a[href^="/professor_manual/submit-"] {
+  display: none;
+}
+
+body.expand-course  .u-sidebar-menu a[href^="/professor_manual/course-"]  { display: block; }
+body.expand-problem .u-sidebar-menu a[href^="/professor_manual/problem-"] { display: block; }
+body.expand-user    .u-sidebar-menu a[href^="/professor_manual/user-"]    { display: block; }
+body.expand-submit  .u-sidebar-menu a[href^="/professor_manual/submit-"]  { display: block; }
+
+.u-sidebar-menu a[href="/professor_manual/course"],
+.u-sidebar-menu a[href="/professor_manual/problem"],
+.u-sidebar-menu a[href="/professor_manual/user"],
+.u-sidebar-menu a[href="/professor_manual/submit"] {
+  font-weight: 700;
+  position: relative;
+  padding-right: 14px; /* 아이콘 자리 */
+}
+.u-sidebar-menu a[href="/professor_manual/course"]::after,
+.u-sidebar-menu a[href="/professor_manual/problem"]::after,
+.u-sidebar-menu a[href="/professor_manual/user"]::after,
+.u-sidebar-menu a[href="/professor_manual/submit"]::after {
+  content: '▸';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform .18s ease;
+}
+body.expand-course  .u-sidebar-menu a[href="/professor_manual/course"]::after  { transform: translateY(-50%) rotate(90deg); }
+body.expand-problem .u-sidebar-menu a[href="/professor_manual/problem"]::after { transform: translateY(-50%) rotate(90deg); }
+body.expand-user    .u-sidebar-menu a[href="/professor_manual/user"]::after    { transform: translateY(-50%) rotate(90deg); }
+body.expand-submit  .u-sidebar-menu a[href="/professor_manual/submit"]::after  { transform: translateY(-50%) rotate(90deg); }
+
+.u-sidebar-menu a[href^="/professor_manual/course-"],
+.u-sidebar-menu a[href^="/professor_manual/problem-"],
+.u-sidebar-menu a[href^="/professor_manual/user-"],
+.u-sidebar-menu a[href^="/professor_manual/submit-"] {
+  padding-left: 30px;
+  opacity: .95;
+}
+
+/* ================================
+   ProfessorManual
+   ================================ */
+.u-professor-manual .u-section {
+  /* 헤더 고정 시 앵커 가림 방지 */
+  scroll-margin-top: 80px;
+}
+
+/* 전체 박스 왼쪽 정렬 (학생 매뉴얼과 동일) */
+.u-professor-manual .u-two-col {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 1100px; /* 학생 매뉴얼에 맞춘 폭 */
+  margin: 0 auto 24px auto; /* 중앙 정렬 + 아래 여백 */
+  transform: translateX(-35px); /* ← 전체를 왼쪽으로 살짝 이동 */
+}
+
+/* 이미지 */
+.u-professor-manual .u-figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* 중앙 정렬 */
+  border-radius: 8px; /* 학생 매뉴얼과 동일 */
+}
+
+.u-professor-manual .u-figure.stack-vert {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.u-professor-manual .u-steps,
+.u-professor-manual .u-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* (선택) 칼럼 비율 헬퍼 */
+.u-professor-manual .fig-40 { --fig-basis: 40%; }
+.u-professor-manual .fig-50 { --fig-basis: 50%; }
+.u-professor-manual .fig-60 { --fig-basis: 60%; }
+.u-professor-manual .fig-66 { --fig-basis: 66%; }
+.u-professor-manual .fig-70 { --fig-basis: 70%; }
+
+/* 이미지 카드 */
+.u-professor-manual .img-box {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  border: 2px solid rgba(0,0,0,0.15);
+}
+
+/* SVG 마커 */
+.u-professor-manual .svg-marker circle { fill:#e53935; opacity:.95; }
+.u-professor-manual .svg-marker text {
+  fill:#fff; font-size:10px; font-weight:700;
+  text-anchor:middle; dominant-baseline:middle;
+}
+
+/* 단계 번호 배지 */
+.u-professor-manual .u-step .num {
+  --badge-size: 24px; --badge-gap: 8px;
+  display:inline-flex; align-items:center; justify-content:center;
+  width:var(--badge-size); height:var(--badge-size);
+  border-radius:9999px;
+  background:#e53935; color:#fff; font-weight:700;
+  margin-right:var(--badge-gap);
+}
+
+/* 공용 문단 유틸 */
+.u-professor-manual .u-steps h2 { margin: 0 0 8px; font-weight: 800; letter-spacing: -0.2px; }
+.u-professor-manual .u-ol { margin: 0 0 8px; padding: 0; list-style: none; }
+.u-professor-manual .u-step { display: flex; gap: 8px; align-items: flex-start; margin: 0; line-height: 1.55; }
+.u-professor-manual .u-step.single-line { display: inline-flex; align-items: center; }
+.u-professor-manual .u-sublist { margin: 6px 0 0; padding: 0 0 0 50px; list-style: none; line-height: 1.6; }
+.u-professor-manual .u-sublist li + li { margin-top: 2px; }
+.u-professor-manual .u-set + .u-set { margin-top: 18px; }
+
+/* 주석(배지와 정렬 맞춤) */
+.u-professor-manual .u-note.note-align {
+  --badge-size: 24px; --badge-gap: 8px;
+  display:block;
+  margin-left: calc(var(--badge-size) + var(--badge-gap));
+  color:#e53935;
+}
+
+/* 본문 표시 제어 */
+.u-professor-manual .u-section { display: none; }
+body[data-view="course"]  .u-professor-manual .u-section[id^="course-"] { display: block; }
+body[data-view="problem"] .u-professor-manual .u-section[id^="problem-"] { display: block; }
+body[data-view="user"]    .u-professor-manual .u-section[id^="user-"] { display: block; }
+body[data-view="submit"]  .u-professor-manual .u-section[id^="submit-"] { display: block; }
+
+.u-professor-manual .u-steps { flex: 0 0 calc(100% - var(--fig-basis, 60%)); }
+.u-professor-manual .u-steps { flex: 1 1 calc(100% - var(--fig-basis, 60%)); }
+
+/* =========================
+   예시 줄(EX) 전용 스타일
+   ========================= */
+.u-professor-manual .ex-note {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.9em;              /* fallback */
+  font-size: calc(1em - 2pt);    /* 2pt 작게 */
+  line-height: 1.4;
+  color: #666;                   /* 연한 회색 */
+}
+/* (u-note와 함께 쓰였다면 표시 기호 제거) */
+.u-professor-manual .ex-note::before,
+.u-professor-manual .ex-note::after {
+  content:"";
+}
+/* --- EX 줄 한방 패치: 줄바꿈 + 2pt 축소 + 연한색 --- */
+.u-steps .ex-note{
+  font-size: calc(1em - 2pt) !important;  /* 2pt 작게 */
+  color: #666 !important;                  /* 연한 회색 */
+  line-height: 1.4 !important;
+}
+
+/* 부모가 inline이어도 강제로 새 줄 시작 */
+.u-steps .ex-note::before{
+  content: "\A";         /* 줄바꿈 문자 삽입 */
+  white-space: pre;      /* \A를 실제 줄바꿈으로 처리 */
+  display: block;        /* 독립 라인으로 렌더링 */
+}
+/* =========================
+   공통 레이아웃
+   ========================= */
+.u-section {
+  background-color: #ffffff;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease-in-out;
+  scroll-margin-top: 80px; /* 헤더에 가리지 않게 */
+  position: relative;      /* 테두리 링 기준 */
+}
+.u-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  outline: 1px solid rgba(0,0,0,.08);
+  pointer-events: none;
+}
+.u-section:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.u-section h2 { margin-top: 0; }
+.u-section img {
+  width: 100%; max-width: 500px; margin-top: 16px;
+  border: 1px solid #ddd; border-radius: 6px;
+}
+
+/* 두 칼럼 레이아웃 (공통) */
+.u-two-col {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 16px;
+  align-items: start;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+.u-figure, .u-steps { padding: 8px 0; }
+
+/* 좌측 이미지 컨테이너 (공통) */
+.u-figure {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 20px 10px;
+  margin-top: 14px;
+}
+.u-figure img {
+  width: 98%; max-width: 620px; height: auto;
+  display: block;
+  margin-top: 0 !important;
+}
+
+/* 우측 설명 칼럼 (공통) */
+.u-steps { padding-right:0; max-width:none; }
+.u-steps h2 { margin:0 0 8px; font-size:1.5rem; }
+.u-steps p { margin:6px 0 10px; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
+.u-steps ul { margin:0; padding:0; list-style:none; }
+.u-step { display:flex; align-items:flex-start; gap:8px; margin-bottom:6px; line-height:1.45; }
+.u-step span:last-child { word-break:keep-all; overflow-wrap:break-word; hyphens:none; }
+.u-step .num {
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:22px; height:22px; border-radius:50%;
+  background:#e53935; color:#fff; font-weight:700; font-size:13px; line-height:1; padding:2px; margin-top:1px;
+}
+
+/* 강조 */
+.u-note { display:block; color:#d32f2f; font-size:.40rem; line-height:1.35; margin-top:2px; font-weight:600; }
+.u-note::before { content:"※"; font-weight:700; }
+.u-steps .u-note::after { content:" \203B"; font-weight:700; }
+
+/* 번호 배지 폭/간격을 변수화해서 어디서든 재사용 */
+.u-steps {
+  --badge-size: 22px; /* .manual-step .num의 min-width와 동일 */
+  --badge-gap: 8px;   /* .manual-step의 gap과 동일 */
+}
+
+/* 주의문구를 "문장 시작선"에 자동 정렬 */
+.u-note.note-align {
+  display: block;
+  margin-left: calc(var(--badge-size) + var(--badge-gap));
+}
+
+/* 줄바꿈 정책 */
+.u-steps,
+.u-steps li,
+.u-steps span { white-space:normal; word-break:normal; max-width:none; }
+
+.u-figure img { max-width:98%; }
+
+/* 상단 헤더 */
+.u-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  padding-left: 60px;
+  z-index: 1000;
+}
+.u-header-title h3 { margin: 0; font-size: 1.2rem; }
+.u-header-right { display: flex; align-items: center; gap: 1rem; }
+.u-header-button {
+  background-color: #6c757d;
+  color: white; border: none;
+  padding: 8px 15px; border-radius: 5px;
+  cursor: pointer; font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.u-header-button:hover { background-color: #5a6268; }
+
+/* 페이지 래퍼 & 컨텐츠 배치 */
+.u-page-wrapper {
+  padding-top: 60px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Malgun Gothic', sans-serif;
+}
+.u-content-wrapper { display: flex; flex-direction: row; }
+
+/* 좌측 목차 사이드바 */
+.u-sidebar {
+  flex: 0 1 220px;
+  width: 220px;
+  min-width: 210px;
+  background-color: #343a40;
+  color: white;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 60px);
+}
+.u-sidebar-menu { list-style: none; padding: 0; margin: 0; }
+.u-sidebar-menu li { margin-bottom: 12px; }
+.u-sidebar-menu a {
+  color: white; text-decoration: none;
+  display: block; padding: 10px 14px; border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.u-sidebar-menu a:hover { background-color: #2c313a; }
+
+/* 모바일 사이드바 */
+.u-sidebar.mobile {
+  position: absolute; z-index: 999; height: 100vh; top: 60px; left: 0;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+}
+
+/* 본문 영역 */
+.u-main {
+  flex-grow: 1;
+  padding: 2rem;
+  max-width: none;
+  margin: 0;
+  background-color: white;
+  color: black;
+  line-height: 1.6;
+  border-left: none;
+  min-height: calc(100vh - 60px);
+}
+
+/* 본문 내 이미지 공통 */
+.u-main img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.u-sidebar { display: block; }
+
+/* [ACTIVE] 하위 항목만 활성 색/이동 */
+.manual-sidebar-menu a.is-active,
+.u-sidebar-menu a.is-active {
+  background-color: #34495e;
+  transform: translateX(5px);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* 상위 헤더는 강조하지 않음 (접힘/펼침 여부와 무관) */
+.manual-sidebar-menu a[aria-expanded],
+.u-sidebar-menu a[aria-expanded] {
+  background-color: #373a47; /* 사이드바 기본 배경과 동일 */
+  transform: none;
+}

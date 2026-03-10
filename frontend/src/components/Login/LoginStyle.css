@@ -1,0 +1,159 @@
+/* src/components/Login/LoginStyle.css */
+
+.login-login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+}
+
+.login-login-form-wrapper {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-login-form-wrapper h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.login-login-form .login-form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-login-form .login-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 1.05em;
+}
+
+.login-label-helper {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #6c757d;
+    margin-left: 8px;
+}
+
+.login-login-form .login-form-input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+    color: #333;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-login-form .login-form-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.login-login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+.login-login-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+.login-login-btn:disabled {
+    background-color: #999;
+    opacity: 0.7;
+    transform: none;
+}
+
+.login-login-edit-button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.login-login-edit-button {
+    flex: 1;
+    width: auto;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    color: white;
+}
+
+.login-login-edit-button.login-primary {
+    background-color: #007bff;
+}
+.login-login-edit-button.login-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+.login-login-edit-button.login-primary:disabled {
+    background-color: #999;
+    opacity: 0.7;
+    transform: none;
+}
+
+.login-login-edit-button.login-secondary {
+    background-color: #6c757d;
+}
+.login-login-edit-button.login-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+.login-login-edit-button.login-secondary:disabled {
+    background-color: #999;
+    opacity: 0.7;
+    transform: none;
+}
+
+.login-login-footer {
+    margin-top: 25px;
+    color: #666;
+    font-size: 0.95em;
+}
+
+.login-login-footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-success-message {
+    color: #28a745;
+    background-color: #e2f7e4;
+    border: 1px solid #28a745;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    text-align: center;
+}

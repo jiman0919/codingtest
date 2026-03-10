@@ -1,0 +1,65 @@
+/* src/admin/Header/Header.css */
+
+.header-admin-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 500;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #282c34;
+    color: white;
+    font-weight: bold;
+    padding: 0 2rem;
+    padding-left: 60px; /* 사이드바 너비만큼 추가 패딩 */
+}
+
+.header-header-right {
+    display: flex;
+    gap: 10px;
+}
+
+.header-admin-header-title {
+    /* 기존 제목 스타일은 그대로 유지 */
+}
+
+.header-admin-header-title h3 {
+    margin: 0;
+}
+
+.header-logout-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.header-logout-button:hover {
+    background-color: #5a6268;
+}
+
+.header-change-password-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.header-change-password-button:hover {
+    background-color: #5a6268;
+}

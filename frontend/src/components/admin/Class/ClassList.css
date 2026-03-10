@@ -1,0 +1,184 @@
+/* src/components/admin/Class/ClassList.css */
+
+.classlist-class-wrapper {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+/* ▼▼▼ [수정] 헤더 스타일을 '제목 중앙, 버튼 오른쪽'으로 변경 ▼▼▼ */
+.classlist-class-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e9ecef;
+    position: relative; /* 제목 중앙 정렬 기준 */
+}
+
+.classlist-class-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    /* 제목을 헤더 정중앙에 위치 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+/* ▲▲▲ [수정] 여기까지 ▲▲▲ */
+
+
+.classlist-add-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-left: auto; /* 버튼을 오른쪽으로 밀어냄 */
+    white-space: nowrap;
+}
+
+.classlist-add-btn:hover {
+    background-color: #218838;
+}
+
+.classlist-class-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.classlist-class-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.classlist-class-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.classlist-class-item-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.classlist-class-item-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.classlist-class-details {
+    display: flex;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    flex-wrap: wrap;
+}
+
+.classlist-class-item-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.classlist-edit-btn,
+.classlist-delete-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: white;
+    border: none;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.classlist-edit-btn {
+    background-color: #007bff;
+}
+.classlist-edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.classlist-delete-btn {
+    background-color: #dc3545;
+}
+.classlist-delete-btn:hover {
+    background-color: #c82333;
+}
+
+.classlist-no-classes-message,
+.classlist-loading-message,
+.classlist-error-message {
+    padding: 40px;
+    text-align: center;
+    color: #868e96;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.classlist-error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+}
+.classlist-error-message p {
+    margin: 0 0 15px 0;
+    font-size: 1.1em;
+}
+.classlist-error-message button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.classlist-error-message button:hover {
+    background-color: #5a6268;
+}
+
+
+@media (max-width: 768px) {
+    .classlist-class-wrapper {
+        padding: 15px;
+        margin: 20px auto;
+    }
+    
+    .classlist-class-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        position: static;
+    }
+    .classlist-class-header h2 {
+        position: static;
+        transform: none;
+    }
+}

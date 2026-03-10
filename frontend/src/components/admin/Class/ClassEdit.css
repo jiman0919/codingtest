@@ -1,0 +1,157 @@
+/* src/admin/Class/ClassEdit.css */
+
+.classedit-class-add-wrapper {
+    /* ▼▼▼ [수정] 표준 반응형 컨테이너 스타일 적용 ▼▼▼ */
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.classedit-class-add-header {
+    display: flex;
+    justify-content: center; /* [수정] 제목 중앙 정렬 */
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.classedit-class-add-header h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.classedit-class-add-form {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.classedit-class-add-form-group {
+    margin-bottom: 20px;
+}
+
+.classedit-class-add-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.classedit-class-add-form-input {
+    width: 100%; /* [수정] calc 대신 100% 사용 */
+    padding: 12px; /* [수정] 패딩 통일 */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+    color: #333;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.classedit-class-add-form-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.classedit-class-add-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.classedit-class-add-submit-btn,
+.classedit-class-add-cancel-btn { /* [수정] 공통 스타일 그룹화 */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    color: white;
+}
+
+.classedit-class-add-submit-btn:hover:not(:disabled) { /* [수정] :disabled 추가 */
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.classedit-class-add-submit-btn:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+}
+
+.classedit-class-add-submit-btn {
+    background-color: #28a745;
+}
+
+.classedit-class-add-cancel-btn {
+    background-color: #6c757d;
+}
+
+.classedit-class-add-cancel-btn:hover:not(:disabled) { /* [수정] :disabled 추가 */
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.classedit-class-add-cancel-btn:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+}
+
+.classedit-class-add-error-message {
+    color: #dc3545;
+    background-color: #ffeaea;
+    border: 1px solid #dc3545;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.classedit-class-add-loading-message {
+    padding: 40px;
+    text-align: center;
+    color: #868e96;
+    font-size: 1rem;
+}
+
+/* ======================================================= */
+/* [반응형 수정] 화면 너비가 768px 이하일 때 적용될 스타일 */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .classedit-class-add-wrapper {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .classedit-class-add-form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .classedit-class-add-submit-btn,
+    .classedit-class-add-cancel-btn {
+        width: 100%;
+    }
+}

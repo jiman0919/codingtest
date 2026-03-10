@@ -1,0 +1,128 @@
+/* =========================
+   상단 헤더 (관리자 톤 차용)
+   ========================= */
+.manual-header {
+  position: fixed;           /* 항상 상단에 고정 */
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: #282c34; /* 기존 헤더색 */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  padding-left: 60px;
+  z-index: 1000;
+}
+
+.manual-header-title h3 { margin: 0; font-size: 1rem; }
+
+.manual-header-right { display: flex; align-items: center; gap: 1rem; }
+
+/* 모바일에서 사이드 토글하는 버튼 */
+.manual-header-button {
+  background-color: #6c757d;
+  color: white; border: none;
+  padding: 8px 15px; border-radius: 5px;
+  cursor: pointer; font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.manual-header-button:hover { background-color: #5a6268; }
+
+/* =========================
+   페이지 래퍼 & 컨텐츠 배치
+   ========================= */
+.manual-page-wrapper {
+  padding-top: 60px;         /* 헤더 높이만큼 위 여백 */
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.manual-content-wrapper { display: flex; flex-direction: row; }
+
+/* =========================
+   좌측 목차 사이드바
+   ========================= */
+.manual-sidebar {
+  text-align: center; /* 가운데 정렬 */
+  /* flex 컨테이너에서 220px을 기준으로 '축소 허용' */
+  flex: 0 1 220px;
+  width: 220px;
+  min-width: 220px;
+  background-color: #343a40;
+  color: white;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  position: sticky;          /* 스크롤해도 고정 */
+  top: 60px;
+  height: calc(100vh - 60px);        /* 뷰포트 기준 높이 */
+  overflow-y: auto;                   /* 길어지면 내부 스크롤 */
+  overscroll-behavior: contain;       /* 사이드바 끝에서 바디로 튐 방지 */
+  -webkit-overflow-scrolling: touch;  /* 모바일 스크롤 가속 */
+}
+.manual-sidebar-menu { list-style: none; padding: 0; margin: 0; }
+.manual-sidebar-menu li { margin-bottom: 12px; }
+.manual-sidebar-menu { padding-bottom: 16px; } /* 하단 잘림 방지 여백 */
+.manual-sidebar-menu a {
+  color: white; text-decoration: none;
+  display: block; padding: 10px 14px; border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.manual-sidebar-menu a:hover { background-color: #2c313a; }
+
+/* 모바일에서 사이드바를 오버레이로 띄움 */
+.manual-sidebar.mobile {
+  position: fixed;                   /* 뷰포트 기준 고정 */
+  z-index: 999;
+  top: 60px; left: 0; bottom: 0;     /* 높이: 헤더 제외 전체 */
+  height: auto;                      /* top~bottom로 결정 */
+  width: min(80vw, 320px);           /* 모바일 폭 */
+  overflow-y: auto;                  /* 내부 스크롤 */
+  box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+}
+
+/* (기존) 트랜지션에 transform도 포함되도록 보강 */
+.manual-sidebar-menu a {
+  transition: background-color 0.2s, transform 0.1s; /* ← transform 추가 */
+}
+
+/* 활성 항목 강조: 색상 동일(#34495e) + 살짝 우측 이동 */
+.manual-sidebar-menu a.is-active,
+.u-sidebar-menu a.is-active {
+  background-color: #34495e;
+  transform: translateX(5px);
+}
+
+/* =========================
+   본문 영역 (여기가 핵심)
+   - max-width 확장: 줄바꿈 과도 문제 완화
+   ========================= */
+.manual-main {
+  flex-grow: 1;
+  padding: 2rem;
+  max-width: none;         
+  margin: 0;
+  background-color: white;
+  color: black;
+  line-height: 1.6;
+  border-left: none;
+  min-height: calc(100vh - 60px);
+}
+
+/* 본문 내 이미지 공통 */
+.manual-main img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* 반응형: 모바일은 햄버거 표시, 데스크탑은 숨김 */
+@media (max-width: 768px) {
+  .manual-header-button { display: block; }
+}
+@media (min-width: 769px) {
+  .manual-header-button { display: none; }
+  .manual-sidebar { display: block; }
+}

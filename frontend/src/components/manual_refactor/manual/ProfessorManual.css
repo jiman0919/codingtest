@@ -1,0 +1,132 @@
+/* ProfessorManual.css (수정본) */
+
+/* [A] 사이드바 토글 */
+.manual-sidebar-menu a[href^="/manual/professor_manual/course-"],
+.manual-sidebar-menu a[href^="/manual/professor_manual/problem-"],
+.manual-sidebar-menu a[href^="/manual/professor_manual/user-"],
+.manual-sidebar-menu a[href^="/manual/professor_manual/submit-"],
+.manual-sidebar-menu a[href^="/manual/professor_manual/bank-"] { display:none; }
+
+body.expand-course  .manual-sidebar-menu a[href^="/manual/professor_manual/course-"]  { display:block; }
+body.expand-problem .manual-sidebar-menu a[href^="/manual/professor_manual/problem-"] { display:block; }
+body.expand-user    .manual-sidebar-menu a[href^="/manual/professor_manual/user-"]    { display:block; }
+body.expand-submit  .manual-sidebar-menu a[href^="/manual/professor_manual/submit-"]  { display:block; }
+body.expand-bank    .manual-sidebar-menu a[href^="/manual/professor_manual/bank-"]    { display:block; }
+
+.manual-sidebar-menu a[href="/manual/professor_manual/course"],
+.manual-sidebar-menu a[href="/manual/professor_manual/problem"],
+.manual-sidebar-menu a[href="/manual/professor_manual/user"],
+.manual-sidebar-menu a[href="/manual/professor_manual/submit"],
+.manual-sidebar-menu a[href="/manual/professor_manual/bank"] {
+  font-weight:700; position:relative; padding-right:14px;
+}
+.manual-sidebar-menu a[href="/manual/professor_manual/course"]::after,
+.manual-sidebar-menu a[href="/manual/professor_manual/problem"]::after,
+.manual-sidebar-menu a[href="/manual/professor_manual/user"]::after,
+.manual-sidebar-menu a[href="/manual/professor_manual/submit"]::after,
+.manual-sidebar-menu a[href="/manual/professor_manual/bank"]::after {
+  content:'▸'; position:absolute; right:0; top:50%;
+  transform:translateY(-50%); transition:transform .18s ease;
+}
+body.expand-course  .manual-sidebar-menu a[href="/manual/professor_manual/course"]::after  { transform:translateY(-50%) rotate(90deg); }
+body.expand-problem .manual-sidebar-menu a[href="/manual/professor_manual/problem"]::after { transform:translateY(-50%) rotate(90deg); }
+body.expand-user    .manual-sidebar-menu a[href="/manual/professor_manual/user"]::after    { transform:translateY(-50%) rotate(90deg); }
+body.expand-submit  .manual-sidebar-menu a[href="/manual/professor_manual/submit"]::after  { transform:translateY(-50%) rotate(90deg); }
+body.expand-bank    .manual-sidebar-menu a[href="/manual/professor_manual/bank"]::after    { transform:translateY(-50%) rotate(90deg); }
+
+.manual-sidebar-menu a[href^="/manual/professor_manual/course-"],
+.manual-sidebar-menu a[href^="/manual/professor_manual/problem-"],
+.manual-sidebar-menu a[href^="/manual/professor_manual/user-"],
+.manual-sidebar-menu a[href^="/manual/professor_manual/submit-"],
+.manual-sidebar-menu a[href^="/manual/professor_manual/bank-"] { padding-left:30px; opacity:.95; }
+
+/* [B] 본문 레이아웃 & 이미지 카드 */
+.professor-manual .manual-section { scroll-margin-top:80px; }
+
+.professor-manual .manual-two-col{
+  display:flex; align-items:flex-start; gap:24px;
+  max-width:1100px; margin:0 auto 24px auto;
+  transform:translateX(clamp(0px, -35px + (100vw - 1280px) * 0.05, -35px));
+}
+
+.professor-manual .manual-figure{ flex:0 0 var(--fig-basis,60%); min-width:0; }
+.professor-manual .manual-figure img{ max-width:100%; height:auto; display:block; margin:0 auto; border-radius:8px; }
+.professor-manual .manual-figure.stack-vert{ display:flex; flex-direction:column; gap:12px; }
+
+.professor-manual .manual-steps,
+.professor-manual .manual-text{ flex:1 1 0; min-width:0; }
+
+/* 이미지 카드 */
+.professor-manual .img-box{
+  position:relative; width:100%; border-radius:12px; overflow:hidden;
+  background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.06); border:2px solid rgba(0,0,0,.15);
+}
+.professor-manual .img-border-strong{ border-width:3px; }
+.professor-manual .img-border-xstrong{ border-width:4px; }
+
+.professor-manual .img-box>img,
+.professor-manual .img-box>.svg-overlay{ display:block; width:100%; height:auto; object-fit:cover; pointer-events:none; }
+
+/* [C] 그룹별 본문 표시 제어 */
+.professor-manual .manual-section{ display:none; }
+body[data-view="course"]  .professor-manual .manual-section[id^="course-"]  { display:block; }
+body[data-view="problem"] .professor-manual .manual-section[id^="problem-"] { display:block; }
+body[data-view="user"]    .professor-manual .manual-section[id^="user-"]    { display:block; }
+body[data-view="submit"]  .professor-manual .manual-section[id^="submit-"]  { display:block; }
+body[data-view="bank"]    .professor-manual .manual-section[id^="bank-"]    { display:block; }
+
+/* [ACTIVE] 하위 항목만 활성 색/이동 */
+.manual-sidebar-menu a.is-active,
+.u-sidebar-menu a.is-active {
+  background-color: #34495e;
+  transform: translateX(5px);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* 상위 헤더는 강조하지 않음 (접힘/펼침 여부와 무관) */
+.manual-sidebar-menu a[aria-expanded="true"],
+.u-sidebar-menu a[aria-expanded="true"] {
+  background-color: #34495e;
+  transform: translateX(5px);
+  transition: background-color .2s, transform .1s;
+}
+
+/* [A-LEFT | 교수 매뉴얼 전용] 텍스트만 왼쪽 정렬 */
+.manual-sidebar-menu li > a[href^="/manual/professor_manual/"],
+.u-sidebar-menu li > a[href^="/manual/professor_manual/"] {
+  text-align: left !important;      /* display는 건드리지 않음 */
+  /* 만약 공통 CSS가 flex를 쓰는 경우에만 다음 한 줄이 적용됩니다 */
+  justify-content: flex-start;      /* flex가 아닐 땐 무해(no-op) */
+}
+
+
+/* [D] 반응형 */
+@media (max-width: 960px){
+  .professor-manual .manual-two-col{ flex-direction:column; gap:16px; }
+  .professor-manual .manual-figure{ margin:0 auto; }
+}
+
+/* 모바일에서도 좌측 고정 (공통에서 center를 강제하는 경우 대응) */
+@media (max-width: 960px){
+  .manual-sidebar-menu li > a[href^="/manual/professor_manual/"],
+  .u-sidebar-menu li > a[href^="/manual/professor_manual/"] {
+    text-align: left !important;
+    justify-content: flex-start;
+  }
+}
+
+/* 상위 메뉴 활성화 — 정확 일치(=) + 슬래시 변종까지 허용 */
+body[data-view="course"]  :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/course"],
+body[data-view="course"]  :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/course/"],
+body[data-view="problem"] :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/problem"],
+body[data-view="problem"] :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/problem/"],
+body[data-view="user"]    :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/user"],
+body[data-view="user"]    :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/user/"],
+body[data-view="submit"]  :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/submit"],
+body[data-view="submit"]  :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/submit/"],
+body[data-view="bank"]    :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/bank"],
+body[data-view="bank"]    :is(.manual-sidebar-menu,.u-sidebar-menu) a[href="/manual/professor_manual/bank/"] {
+  background-color: #34495e;
+  transform: translateX(5px);
+  transition: background-color .2s, transform .1s;
+}

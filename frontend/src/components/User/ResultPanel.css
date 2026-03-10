@@ -1,0 +1,89 @@
+/* src/components/User/ResultPanel.css */
+
+.resultpanel-result-panel-wrapper {
+  height: 30%;
+  flex-shrink: 0;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.resultpanel-result-panel {
+  border: none;
+  border-radius: 4px;
+  padding: 2px;
+  background-color: #ffffff;
+  color: #333;
+  font-family: Arial, sans-serif;
+  height:200px;
+  overflow-x:hidden;
+}
+
+.resultpanel-result-panel::-webkit-scrollbar {
+    display: none;
+}
+
+
+.resultpanel-result-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.resultpanel-result-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.resultpanel-result-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.85em;
+  color: #6c757d;
+}
+
+.resultpanel-result-status {
+  font-weight: bold;
+}
+
+.resultpanel-text-success {
+  color: green;
+}
+
+.resultpanel-text-error {
+  color: red;
+}
+
+.resultpanel-result-output-section {
+  margin-top: 10px;
+  background-color: #ffffff;
+}
+
+.resultpanel-result-output-section h4 {
+  font-size: 1.3em;
+  margin: 0 0 5px 0;
+}
+
+.resultpanel-result-output {
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 1em;
+  margin: 0;
+}
+
+.resultpanel-submission-status-message {
+  color: #28a745;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}

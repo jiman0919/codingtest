@@ -1,0 +1,296 @@
+/* src/components/MasterAdmin/ManageStyle.css */
+
+/* [추가] 공통 레이아웃 스타일 */
+.page-wrapper {
+    padding-top: 70px;
+}
+
+/* ====================================================== */
+/* Manage.js 컴포넌트 스타일 (교수/학생 목록 관리)        */
+/* ====================================================== */
+
+.manage-manage {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.manage-manage__section {
+    margin-bottom: 30px;
+}
+.manage-manage__section:last-child {
+    margin-bottom: 0;
+}
+
+.manage-manage__header {
+    display: flex;
+    justify-content: space-between;
+    text-align:center;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 16px;
+}
+
+.manage-manage__header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+}
+
+.manage-manage__add-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+.manage-manage__add-btn:hover {
+    background-color: #218838;
+}
+
+.manage-manage__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.manage-manage__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+}
+
+.manage-manage__item-name {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #343a40;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 16px;
+}
+
+.manage-manage__item-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.manage-manage__reset-btn,
+.manage-manage__remove-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: white;
+    white-space: nowrap;
+}
+.manage-manage__reset-btn {
+    background-color: #007bff;
+}
+.manage-manage__reset-btn:hover {
+    background-color: #0056b3;
+}
+.manage-manage__remove-btn {
+    background-color: #dc3545;
+}
+.manage-manage__remove-btn:hover {
+    background-color: #c82333;
+}
+
+.manage-manage__no-items {
+    padding: 40px;
+    text-align: center;
+    color: #868e96;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+
+/* ====================================================== */
+/* ManageProfessor.js 컴포넌트 스타일 (교수 추가 폼)      */
+/* ====================================================== */
+
+.manageprofessor-manage-professor {
+    max-width: 600px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.manageprofessor-manage-professor__header {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.manageprofessor-manage-professor__header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+    text-align: center;
+}
+
+.manageprofessor-manage-professor__form-group {
+    margin-bottom: 16px;
+}
+
+.manageprofessor-manage-professor__form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.manageprofessor-manage-professor__form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manageprofessor-manage-professor__form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.manageprofessor-manage-professor__button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.manageprofessor-manage-professor__submit-btn,
+.manageprofessor-manage-professor__cancel-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: white;
+}
+
+.manageprofessor-manage-professor__submit-btn {
+    background-color: #007bff;
+}
+.manageprofessor-manage-professor__submit-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+.manageprofessor-manage-professor__cancel-btn {
+    background-color: #6c757d;
+}
+.manageprofessor-manage-professor__cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ====================================================== */
+/* 공통 로딩/에러 메시지 스타일                           */
+/* ====================================================== */
+
+.manage-manage__loading,
+.manage-manage__error,
+.manageprofessor-manage-professor__loading,
+.manageprofessor-manage-professor__error {
+    padding: 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    box-sizing: border-box;
+}
+
+.manage-manage__error,
+.manageprofessor-manage-professor__error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+/* ======================================================= */
+/* [반응형 수정] 화면 너비가 768px 이하일 때 적용될 스타일 */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .page-wrapper {
+        padding-top: 60px;
+    }
+    .manage-manage,
+    .manageprofessor-manage-professor {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .manage-manage__header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .manage-manage__header h2 {
+        text-align: center;
+    }
+    
+    .manage-manage__item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .manage-manage__item-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .manageprofessor-manage-professor__button-group {
+        flex-direction: column;
+    }
+    .manageprofessor-manage-professor__button-group button {
+        width: 100%;
+    }
+}
