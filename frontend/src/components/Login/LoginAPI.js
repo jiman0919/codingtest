@@ -4,7 +4,7 @@ import api from '../../services/api';
 // import axios from 'axios';
 
 // 백엔드 API의 기본 URL
-const API_BASE_URL = 'http://localhost:8000'; 
+const API_BASE_URL = 'https://api.hcodetest.com'; 
 
 /**
  * 사용자 로그인을 처리하는 API 호출 함수

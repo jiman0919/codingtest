@@ -5,7 +5,7 @@ from typing import Optional
 import os
 
 class Judge0Client:
-    def __init__(self, base_url: str = "http://localhost:2358"):
+    def __init__(self, base_url: str = "https://judge.hcodetest.com"):
         self.base_url = base_url
         self.rapidapi_key = os.getenv("RAPIDAPI_KEY", "")
         self.use_rapidapi = bool(self.rapidapi_key)

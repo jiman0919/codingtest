@@ -17,8 +17,8 @@ idna==3.11
 passlib==1.7.4
 pyasn1==0.6.1
 pycparser==2.23
-pydantic==2.5.0
-pydantic_core==2.14.1
+pydantic
+pydantic_core
 python-dotenv==1.0.0
 python-jose==3.5.0
 python-multipart==0.0.6

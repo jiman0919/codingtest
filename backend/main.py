@@ -53,8 +53,9 @@ app = FastAPI(title="Judge Yeon API")
 
 # ✨👇 이 부분이 수정되었습니다!
 origins = [
-    "http://localhost",
+    "https://hcodetest.com",
     "http://localhost:3000",
+    "http://hcodetest.com",
 ]
 
 app.add_middleware(
@@ -114,7 +115,7 @@ def reset_student_password(
         raise HTTPException(status_code=403, detail="해당 학생은 교수님의 강의에 소속되어 있지 않습니다.")
 
     # 4. 비밀번호를 기본값으로 초기화 ("changeme123" 등)
-    student.password_hash = get_password_hash("changeme123")
+    student.password_hash = get_password_hash("000000")
     db.commit()
 
     # 5. 초기화 완료 메시지 반환

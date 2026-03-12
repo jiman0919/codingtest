@@ -402,7 +402,7 @@ export default function ProfessorManual() {
                   <span>학생이 비밀번호를 잊은 경우, <b>이름(학번)</b>을 확인한 뒤 <b>초기화</b>를 누르세요.</span>
                 </li>
               </ul>
-              <span className="manual-note"> 초기화 시 비밀번호는 <b>0000</b>으로 설정됩니다. 로그인 후 비밀번호 변경을 권장합니다.</span>
+              <span className="manual-note"> 초기화 시 비밀번호는 <b>000000</b>으로 설정됩니다. 로그인 후 비밀번호 변경을 권장합니다.</span>
             </div>
           </div>
         </section>
