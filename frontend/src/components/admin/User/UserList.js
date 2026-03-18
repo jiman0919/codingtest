@@ -34,10 +34,6 @@ const UserList = () => {
     }, [classId]);
 
     useEffect(() => {
-        if (!classId) {
-            // classId가 없을 경우에 대한 처리를 명확하게 할 수 있습니다.
-            // 예를 들어, 에러 상태를 설정하거나 로딩을 중단할 수 있습니다.
-        }
         fetchData();
     }, [classId, fetchData]);
 
@@ -53,7 +49,26 @@ const UserList = () => {
                 alert(`"${userName}" 유저의 수강 신청이 수락되었습니다.`);
                 fetchData();
             } catch (err) {
-                alert(`수락 처리에 실패했습니다: ${err.message}`);
+                // [수정 포인트] 백엔드에서 보낸 커스텀 에러 객체 처리
+                const errorDetail = err.response?.data?.detail;
+                
+                if (errorDetail && errorDetail.code) {
+                    // 에러 코드에 따른 맞춤형 메시지
+                    switch (errorDetail.code) {
+                        case "COURSE_FULL":
+                            alert(`승인 실패: ${errorDetail.message}`);
+                            break;
+                        case "ALREADY_APPROVED":
+                            alert("알림: 이미 승인된 유저입니다.");
+                            fetchData(); // 목록 최신화
+                            break;
+                        default:
+                            alert(`오류: ${errorDetail.message}`);
+                    }
+                } else {
+                    // 기존 일반 에러 처리
+                    alert(`수락 처리에 실패했습니다: ${err.message}`);
+                }
                 console.error('Error approving enrollment:', err);
             }
         }
@@ -86,7 +101,6 @@ const UserList = () => {
 
         if (window.confirm(`"${userName}" 유저를 이 강좌 수강 목록에서 제외하시겠습니까?`)) {
             try {
-                // 수강생 제외는 거절 API와 동일한 로직을 사용할 수 있습니다.
                 await rejectEnrollment(classId, enrollmentId);
                 alert(`"${userName}" 유저가 강좌 수강 목록에서 제외되었습니다.`);
                 fetchData();
